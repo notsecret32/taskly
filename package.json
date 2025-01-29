@@ -5,7 +5,8 @@
     "build": "turbo build",
     "dev": "turbo run dev --filter=web",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "web:storybook": "pnpm run --filter=web storybook"
   },
   "devDependencies": {
     "prettier": "^3.4.2",
