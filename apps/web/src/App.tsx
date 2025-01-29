@@ -1,5 +1,7 @@
 import { FC } from 'react';
+import { RouterProvider } from 'react-router';
+import { router } from './pages';
 
 export const App: FC = () => {
-  return <div>Taskly</div>;
+  return <RouterProvider router={router} />;
 };
