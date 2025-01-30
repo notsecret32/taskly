@@ -2,5 +2,52 @@
 @import 'tailwindcss';
 
 @theme {
+  /* FONT */
   --default-font-family: 'Inter', serif;
+
+  /* COLOR */
+  --color-*: initial;
+  --color-background: #f7f8fb;
+  --color-title-primary: #1f2633;
+  --color-title-secondary: #98a2b2;
+  --color-stroke: #e9ebf0;
+  --color-icon: #b8bfcc;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-stroke);
+  }
+
+  body {
+    background-color: var(--color-background);
+  }
+
+  svg {
+    color: var(--color-icon);
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-title-primary);
+    letter-spacing: 0px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+  }
+
+  h4 {
+    color: var(--color-title-secondary);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 20px;
+  }
 }
