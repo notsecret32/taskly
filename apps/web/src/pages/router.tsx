@@ -1,6 +1,6 @@
 import { DashboardOverview } from '@/components/dashboard';
-import { ProjectOverview } from '@/components/project';
-import { DashboardPage, ProjectPage } from '@/pages';
+import { ProjectDetails, ProjectOverview } from '@/components/project';
+import { DashboardPage } from '@/pages';
 import { createBrowserRouter } from 'react-router';
 
 export const router = createBrowserRouter([
@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
           },
           {
             path: ':projectId',
-            element: <ProjectPage />,
+            element: <ProjectDetails />,
           },
         ],
       },
