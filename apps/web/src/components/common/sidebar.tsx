@@ -1,6 +1,6 @@
+import { List, ListLabel } from '@/components/ui/list';
 import { Menu } from 'lucide-react';
 import { FC } from 'react';
-import { List, ListLabel } from '../ui/list';
 
 export const Sidebar: FC = () => {
   return (

@@ -1,6 +1,5 @@
+import { DashboardPage, ProjectPage } from '@/pages';
 import { createBrowserRouter, Navigate } from 'react-router';
-import { DashboardPage } from './dashboard-page';
-import { ProjectPage } from './project-page';
 
 export const router = createBrowserRouter([
   {
