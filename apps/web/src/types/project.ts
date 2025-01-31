@@ -1,9 +1,12 @@
+import { Task } from '@/types';
+
 /**
  * Detailed type that describes a project entity.
  */
 export interface Project {
   id: string;
   title: string;
+  tasks?: Task[];
 }
 
 /**
