@@ -1,9 +1,9 @@
 import { ProjectList } from '@/components/project';
-import { Project } from '@/types';
+import { ProjectSummary } from '@/types';
 import { Menu } from 'lucide-react';
 import { FC, PropsWithChildren } from 'react';
 
-const projects: Project[] = [
+const projects: ProjectSummary[] = [
   {
     id: '1',
     title: 'Project #1',

@@ -1,12 +1,12 @@
 import { List, ListContent, ListHeader } from '@/components/ui/list';
-import { Project } from '@/types';
+import { ProjectSummary } from '@/types';
 import clsx from 'clsx';
 import { Ellipsis, Home, Plus } from 'lucide-react';
 import { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 
 interface ProjectListProps {
-  projects: Project[];
+  projects: ProjectSummary[];
   onAdd?: () => void;
 }
 
@@ -32,7 +32,7 @@ export const ProjectList: FC<ProjectListProps> = ({ projects, onAdd }) => {
   );
 };
 
-interface ProjectItemProps extends Project {
+interface ProjectItemProps extends ProjectSummary {
   onEdit?: () => void;
 }
 
