@@ -1,9 +1,27 @@
-import { PropsWithChildren } from 'react';
+import { FC } from 'react';
 
-export const ListLabel = ({ children }: PropsWithChildren) => {
-  return <h4 className="uppercase">{children}</h4>;
+interface ListProps {
+  children: React.ReactNode;
+}
+
+const List: FC<ListProps> = ({ children }) => {
+  return <div className="flex flex-col gap-2">{children}</div>;
 };
 
-export const List = ({ children }: PropsWithChildren) => {
-  return <div>{children}</div>;
+interface ListHeaderProps {
+  children: React.ReactNode;
+}
+
+const ListHeader: FC<ListHeaderProps> = ({ children }) => {
+  return <div className="flex justify-between uppercase">{children}</div>;
 };
+
+interface ListContentProps {
+  children: React.ReactNode;
+}
+
+const ListContent: FC<ListContentProps> = ({ children }) => {
+  return <div className="flex flex-col gap-1">{children}</div>;
+};
+
+export { List, ListContent, ListHeader };

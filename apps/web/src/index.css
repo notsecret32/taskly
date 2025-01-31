@@ -7,11 +7,13 @@
 
   /* COLOR */
   --color-*: initial;
-  --color-background: #f7f8fb;
+  --color-background-primary: #f7f8fb;
+  --color-background-secondary: #ffffff;
   --color-title-primary: #1f2633;
   --color-title-secondary: #98a2b2;
   --color-stroke: #e9ebf0;
-  --color-icon: #b8bfcc;
+  --color-icon-primary: #b8bfcc;
+  --color-icon-secondary: #3b82f6;
 }
 
 @layer base {
@@ -20,12 +22,11 @@
   }
 
   body {
-    background-color: var(--color-background);
+    background-color: var(--color-background-primary);
   }
 
   svg {
-    color: var(--color-icon);
-    cursor: pointer;
+    color: var(--color-icon-primary);
   }
 
   h1,
