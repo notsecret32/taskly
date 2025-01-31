@@ -1,4 +1,4 @@
-import { ProjectList } from '@/components/dashboard';
+import { ProjectList } from '@/components/project';
 import { Project } from '@/types';
 import { Menu } from 'lucide-react';
 import { FC, PropsWithChildren } from 'react';

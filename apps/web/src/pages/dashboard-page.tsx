@@ -1,5 +1,5 @@
 import { Sidebar } from '@/components/common';
-import { DashboardLayout } from '@/components/dashboard';
+import { DashboardLayout } from '@/components/layout';
 import { FC } from 'react';
 import { Outlet } from 'react-router';
 
