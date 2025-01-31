@@ -1,7 +1,9 @@
 import { List, ListContent, ListHeader } from '@/components/ui/list';
 import { Project } from '@/types';
+import clsx from 'clsx';
 import { Ellipsis, Home, Plus } from 'lucide-react';
 import { FC } from 'react';
+import { useLocation, useNavigate } from 'react-router';
 
 interface ProjectListProps {
   projects: Project[];
@@ -34,14 +36,37 @@ interface ProjectItemProps extends Project {
   onEdit?: () => void;
 }
 
-const ProjectItem: FC<ProjectItemProps> = ({ title, onEdit }) => {
+const ProjectItem: FC<ProjectItemProps> = ({ id, title, onEdit }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleClick = () => {
+    navigate(`/dashboard/projects/${id}`);
+  };
+
+  const handleEditClick = (e: React.MouseEvent<SVGSVGElement>) => {
+    e.stopPropagation();
+    onEdit?.();
+  };
+
+  const isActive = location.pathname === `/dashboard/projects/${id}`;
+
   return (
-    <div className="hover:bg-background-secondary flex cursor-pointer select-none items-center gap-5 rounded-lg p-2">
+    <div
+      className={clsx(
+        'flex cursor-pointer select-none items-center gap-5 rounded-lg p-2',
+        {
+          ['bg-background-secondary']: isActive,
+          ['hover:bg-stroke']: !isActive,
+        }
+      )}
+      onClick={handleClick}
+    >
       <Home color="var(--color-icon-secondary)" size={20} />
       <h4 className="text-title-primary font-semibold">{title}</h4>
       <Ellipsis
         className="hover:text-icon-secondary active:bg-background-primary ml-auto rounded-md"
-        onClick={onEdit}
+        onClick={handleEditClick}
       />
     </div>
   );
