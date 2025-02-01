@@ -1,4 +1,4 @@
-import { Task } from '@/types';
+import { TaskSummary } from '@/types';
 
 export interface BoardView {
   columns: BoardViewColumn[];
@@ -6,5 +6,5 @@ export interface BoardView {
 
 export interface BoardViewColumn {
   title: string;
-  tasks: Task[];
+  tasks: TaskSummary[];
 }

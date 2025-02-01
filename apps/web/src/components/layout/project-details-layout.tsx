@@ -7,5 +7,5 @@ interface ProjectDetailsLayoutProps {
 export const ProjectDetailsLayout: FC<ProjectDetailsLayoutProps> = ({
   children,
 }) => {
-  return <div className="flex flex-col gap-11 p-9">{children}</div>;
+  return <div className="flex grow flex-col gap-11 p-9">{children}</div>;
 };

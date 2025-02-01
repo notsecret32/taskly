@@ -1,5 +1,5 @@
 import { ProjectDetailsLayout } from '@/components/layout';
-import { TasksBoardView } from '@/components/project';
+import { TasksListView } from '@/components/project';
 import { Project } from '@/types';
 import { Pencil } from 'lucide-react';
 import { FC } from 'react';
@@ -7,7 +7,33 @@ import { FC } from 'react';
 const project: Project = {
   id: '1',
   title: 'Project Details',
-  tasks: [],
+  tasks: [
+    {
+      id: '1',
+      title: 'Task #1',
+      isCompleted: true,
+    },
+    {
+      id: '2',
+      title: 'Task #2',
+      isCompleted: false,
+    },
+    {
+      id: '3',
+      title: 'Task #3',
+      isCompleted: false,
+    },
+    {
+      id: '4',
+      title: 'Task #4',
+      isCompleted: false,
+    },
+    {
+      id: '5',
+      title: 'Task #5',
+      isCompleted: false,
+    },
+  ],
 };
 
 export const ProjectDetails: FC = () => {
@@ -18,7 +44,7 @@ export const ProjectDetails: FC = () => {
       <ProjectTitle onEdit={() => console.log('Edit title')}>
         <h1>{title}</h1>
       </ProjectTitle>
-      <TasksBoardView tasks={tasks} />
+      <TasksListView tasks={tasks} />
     </ProjectDetailsLayout>
   );
 };

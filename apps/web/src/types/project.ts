@@ -1,4 +1,4 @@
-import { Task } from '@/types';
+import { TaskSummary } from '@/types';
 
 /**
  * Detailed type that describes a project entity.
@@ -6,7 +6,7 @@ import { Task } from '@/types';
 export interface Project {
   id: string;
   title: string;
-  tasks?: Task[];
+  tasks?: TaskSummary[];
 }
 
 /**
