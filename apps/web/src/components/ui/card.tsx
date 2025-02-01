@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '@/utils';
 import { forwardRef, HTMLAttributes } from 'react';
 
 interface CardProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
@@ -9,7 +9,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, children, ...rest }, ref) => (
     <div
       ref={ref}
-      className={clsx(
+      className={cn(
         'bg-background-secondary flex flex-col gap-3 rounded-lg p-5 shadow-sm',
         className
       )}

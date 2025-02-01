@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '@/utils';
 import { X } from 'lucide-react';
 import { FC, HTMLAttributes } from 'react';
 import { createPortal } from 'react-dom';
@@ -24,7 +24,7 @@ export const Modal: FC<ModalProps> = ({
   return createPortal(
     <div className="bg-modal-overlay fixed bottom-0 left-0 right-0 top-0 z-50 flex items-center justify-center">
       <div
-        className={clsx(
+        className={cn(
           'bg-background-secondary h-full max-h-[720px] w-full max-w-7xl rounded-lg border px-8 py-4',
           className
         )}

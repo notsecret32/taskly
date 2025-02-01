@@ -1,6 +1,6 @@
 import { List, ListContent, ListHeader } from '@/components/ui/list';
 import { ProjectSummary } from '@/types';
-import clsx from 'clsx';
+import { cn } from '@/utils';
 import { Ellipsis, Home, Plus } from 'lucide-react';
 import { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router';
@@ -53,7 +53,7 @@ const ProjectItem: FC<ProjectItemProps> = ({ id, title, onEdit }) => {
 
   return (
     <div
-      className={clsx(
+      className={cn(
         'flex cursor-pointer select-none items-center gap-5 rounded-lg p-2',
         {
           ['bg-background-secondary']: isActive,

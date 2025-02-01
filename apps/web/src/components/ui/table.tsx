@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '@/utils';
 import { forwardRef, HTMLAttributes } from 'react';
 
 interface TableProps
@@ -10,7 +10,7 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
   ({ className, children, ...rest }, ref) => (
     <table
       ref={ref}
-      className={clsx(
+      className={cn(
         'bg-background-secondary w-full border-separate border-spacing-0 rounded-lg border shadow-sm',
         className
       )}
@@ -30,7 +30,7 @@ const TableHeader = forwardRef<HTMLTableSectionElement, TableHeaderProps>(
   ({ className, children, ...rest }, ref) => (
     <thead
       ref={ref}
-      className={clsx('bg-background-primary', className)}
+      className={cn('bg-background-primary', className)}
       {...rest}
     >
       {children}
@@ -45,7 +45,7 @@ interface TableBodyProps
 
 const TableBody = forwardRef<HTMLTableSectionElement, TableBodyProps>(
   ({ className, children, ...rest }, ref) => (
-    <tbody ref={ref} className={clsx(className)} {...rest}>
+    <tbody ref={ref} className={cn(className)} {...rest}>
       {children}
     </tbody>
   )
@@ -58,7 +58,7 @@ interface TableFooterProps
 
 const TableFooter = forwardRef<HTMLTableSectionElement, TableFooterProps>(
   ({ className, children, ...rest }, ref) => (
-    <tfoot ref={ref} className={clsx(className)} {...rest}>
+    <tfoot ref={ref} className={cn(className)} {...rest}>
       {children}
     </tfoot>
   )
@@ -73,7 +73,7 @@ const TableHead = forwardRef<HTMLTableCellElement, TableHeadProps>(
   ({ className, children, ...rest }, ref) => (
     <th
       ref={ref}
-      className={clsx(
+      className={cn(
         'text-title-secondary hover:text-title-primary border-b border-t px-5 py-3 text-left uppercase',
         className
       )}
@@ -93,7 +93,7 @@ const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(
   ({ className, children, ...rest }, ref) => (
     <tr
       ref={ref}
-      className={clsx('hover:bg-background-primary cursor-pointer', className)}
+      className={cn('hover:bg-background-primary cursor-pointer', className)}
       {...rest}
     >
       {children}
@@ -110,7 +110,7 @@ const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
   ({ className, children, ...rest }, ref) => (
     <td
       ref={ref}
-      className={clsx('border-b border-t px-5 py-3', className)}
+      className={cn('border-b border-t px-5 py-3', className)}
       {...rest}
     >
       {children}
