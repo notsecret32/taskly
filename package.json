@@ -4,6 +4,8 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo run dev --filter=web",
+    "dev:web": "pnpm run --filter=web dev",
+    "dev:server": "pnpm run --filter=server start:dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "web:storybook": "pnpm run --filter=web storybook"
