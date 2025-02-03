@@ -9,4 +9,24 @@ export class ProjectService {
   async create(project: Prisma.ProjectCreateInput) {
     return this.prisma.project.create({ data: project });
   }
+
+  async getAll() {
+    return this.prisma.project.findMany({
+      select: {
+        id: true,
+        name: true,
+      },
+    });
+  }
+
+  async getById(id: string) {
+    return this.prisma.project.findFirst({
+      where: {
+        id,
+      },
+      include: {
+        tasks: true,
+      },
+    });
+  }
 }
