@@ -1,4 +1,4 @@
-import { TaskSummary } from '@/types';
+import { TaskSummary } from './task';
 
 /**
  * Detailed type that describes a project entity.

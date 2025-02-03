@@ -1,5 +1,5 @@
 import { Card } from '@/components/ui/card';
-import { Task } from '@/types';
+import { Task } from '@taskly/types';
 import { FC } from 'react';
 
 type TaskItemProps = Task;

@@ -1,6 +1,6 @@
 import { List, ListContent, ListHeader } from '@/components/ui/list';
-import { ProjectSummary } from '@/types';
 import { cn } from '@/utils';
+import { ProjectSummary } from '@taskly/types';
 import { Ellipsis, Home, Plus } from 'lucide-react';
 import { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router';

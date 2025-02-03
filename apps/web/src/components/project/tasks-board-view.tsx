@@ -1,5 +1,5 @@
 import { TaskItem } from '@/components/project';
-import { Project } from '@/types';
+import { Project } from '@taskly/types';
 import { Ellipsis } from 'lucide-react';
 import { FC } from 'react';
 

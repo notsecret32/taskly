@@ -1,7 +1,7 @@
 import { ProjectDetailsLayout } from '@/components/layout';
 import { TasksListView } from '@/components/project';
 import { Modal } from '@/components/ui/modal';
-import { Project } from '@/types';
+import { Project } from '@taskly/types';
 import { Pencil } from 'lucide-react';
 import { FC, useState } from 'react';
 

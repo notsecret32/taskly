@@ -1,5 +1,5 @@
 import { ProjectList } from '@/components/project';
-import { ProjectSummary } from '@/types';
+import { ProjectSummary } from '@taskly/types';
 import { Menu } from 'lucide-react';
 import { FC, PropsWithChildren } from 'react';
 

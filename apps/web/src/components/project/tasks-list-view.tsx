@@ -1,6 +1,6 @@
 import { DataTable } from '@/components/ui/data-table';
-import { TaskSummary } from '@/types';
 import { ColumnDef } from '@tanstack/react-table';
+import { TaskSummary } from '@taskly/types';
 import { FC, useMemo } from 'react';
 
 const columns: ColumnDef<TaskSummary>[] = [
