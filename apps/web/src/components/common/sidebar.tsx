@@ -3,30 +3,11 @@ import { ProjectSummary } from '@taskly/types';
 import { Menu } from 'lucide-react';
 import { FC, PropsWithChildren } from 'react';
 
-const projects: ProjectSummary[] = [
-  {
-    id: '1',
-    name: 'Project #1',
-  },
-  {
-    id: '2',
-    name: 'Project #2',
-  },
-  {
-    id: '3',
-    name: 'Project #3',
-  },
-  {
-    id: '4',
-    name: 'Project #4',
-  },
-  {
-    id: '5',
-    name: 'Project #5',
-  },
-];
+interface SidebarProps {
+  projects: ProjectSummary[] | undefined;
+}
 
-export const Sidebar: FC = () => {
+export const Sidebar: FC<SidebarProps> = ({ projects }) => {
   return (
     <div className="h-screen min-w-[300px] border-r">
       <SidebarHeader>
