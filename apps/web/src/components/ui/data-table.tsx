@@ -61,7 +61,7 @@ export const DataTable = <TData, TValue>({
           ))
         ) : (
           <TableRow>
-            <TableCell>No result</TableCell>
+            <TableCell>No items</TableCell>
           </TableRow>
         )}
       </TableBody>
