@@ -7,7 +7,7 @@ import { FC, useState } from 'react';
 
 const project: Project = {
   id: '1',
-  title: 'Project Details',
+  name: 'Project Details',
   tasks: [
     {
       id: '1',
@@ -40,12 +40,12 @@ const project: Project = {
 export const ProjectDetails: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
-  const { title, tasks } = project;
+  const { name, tasks } = project;
 
   return (
     <ProjectDetailsLayout>
       <ProjectTitle onEdit={() => console.log('Edit title')}>
-        <h1>{title}</h1>
+        <h1>{name}</h1>
       </ProjectTitle>
       <TasksListView tasks={tasks} />
       <Modal
