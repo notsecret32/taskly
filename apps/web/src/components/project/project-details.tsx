@@ -3,12 +3,17 @@ import { TasksListView } from '@/components/project';
 import { useProject } from '@/hooks';
 import { Pencil } from 'lucide-react';
 import { FC } from 'react';
+import { LoadingSpinner } from '../common';
 
 export const ProjectDetails: FC = () => {
   const { project, isLoading, error, isError } = useProject();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex grow items-center justify-center">
+        <LoadingSpinner />
+      </div>
+    );
   }
 
   if (isError || !project) {

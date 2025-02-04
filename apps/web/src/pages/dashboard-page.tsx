@@ -1,5 +1,5 @@
 import { fetchProjects } from '@/api';
-import { Sidebar } from '@/components/common';
+import { LoadingSpinner, Sidebar } from '@/components/common';
 import { DashboardLayout } from '@/components/layout';
 import { useQuery } from '@tanstack/react-query';
 import { FC } from 'react';
@@ -19,7 +19,11 @@ export const DashboardPage: FC = () => {
   });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex h-screen w-screen items-center justify-center">
+        <LoadingSpinner />
+      </div>
+    );
   }
 
   if (isError) {
