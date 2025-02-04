@@ -6,23 +6,23 @@ import { FC, PropsWithChildren } from 'react';
 const projects: ProjectSummary[] = [
   {
     id: '1',
-    title: 'Project #1',
+    name: 'Project #1',
   },
   {
     id: '2',
-    title: 'Project #2',
+    name: 'Project #2',
   },
   {
     id: '3',
-    title: 'Project #3',
+    name: 'Project #3',
   },
   {
     id: '4',
-    title: 'Project #4',
+    name: 'Project #4',
   },
   {
     id: '5',
-    title: 'Project #5',
+    name: 'Project #5',
   },
 ];
 
