@@ -5,11 +5,11 @@ import { TaskSummary } from './task';
  */
 export interface Project {
   id: string;
-  title: string;
+  name: string;
   tasks?: TaskSummary[];
 }
 
 /**
  * Type used for obtaining a brief description of a project.
  */
-export type ProjectSummary = Pick<Project, 'id' | 'title'>;
+export type ProjectSummary = Pick<Project, 'id' | 'name'>;

@@ -1,29 +1,51 @@
 import { PrismaService } from '@/prisma/prisma.service';
-import { Injectable } from '@nestjs/common';
+import { TaskCreateDto } from '@/task/dto';
+import {
+  BadRequestException,
+  ConflictException,
+  Injectable,
+} from '@nestjs/common';
+import { Task, TaskSummary } from '@taskly/types';
 
 @Injectable()
 export class TaskService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(task: { title: string; projectId: string }) {
-    const { title, projectId } = task;
+  async create({ title, projectId }: TaskCreateDto): Promise<Task> {
+    const taskByTitle = await this.prisma.task.findFirst({
+      where: {
+        title,
+      },
+    });
+
+    if (taskByTitle) {
+      throw new ConflictException('A task with this title already exists');
+    }
+
+    const taskByProjectId = await this.prisma.task.findFirst({
+      where: {
+        projectId,
+      },
+    });
+
+    if (!taskByProjectId) {
+      throw new BadRequestException('There is no project with this id');
+    }
+
     return this.prisma.task.create({
       data: {
         title,
         projectId,
       },
-      omit: {
-        projectId: true,
-      },
     });
   }
 
-  async getAll(body: { projectId: string }) {
+  async getAll(body: { projectId: string }): Promise<TaskSummary[]> {
     const { projectId } = body;
     return this.prisma.task.findMany({ where: { projectId } });
   }
 
-  async getById(id: string) {
+  async getById(id: string): Promise<Task | null> {
     return this.prisma.task.findFirst({
       where: {
         id,
