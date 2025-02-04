@@ -30,7 +30,7 @@ export const Modal: FC<ModalProps> = ({
         )}
         {...rest}
       >
-        <div className="flex items-center justify-between">
+        <div className="mb-4 flex items-center justify-between">
           {label && <h1>{label}</h1>}
           <X className="cursor-pointer" onClick={onClose} />
         </div>
