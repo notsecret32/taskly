@@ -1,6 +1,5 @@
 import { ProjectList } from '@/components/project';
 import { ProjectSummary } from '@taskly/types';
-import { Menu } from 'lucide-react';
 import { FC, PropsWithChildren } from 'react';
 
 interface SidebarProps {
@@ -12,7 +11,6 @@ export const Sidebar: FC<SidebarProps> = ({ projects }) => {
     <div className="h-screen min-w-[300px] border-r">
       <SidebarHeader>
         <h2>Dashboard</h2>
-        <Menu className="cursor-pointer" />
       </SidebarHeader>
       <SidebarBody>
         <ProjectList
