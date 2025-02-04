@@ -1,22 +1,23 @@
 import { ProjectList } from '@/components/project';
 import { ProjectSummary } from '@taskly/types';
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, useState } from 'react';
+import { CreateProjectModal } from '../modals';
 
 interface SidebarProps {
   projects: ProjectSummary[] | undefined;
 }
 
 export const Sidebar: FC<SidebarProps> = ({ projects }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="h-screen min-w-[300px] border-r">
       <SidebarHeader>
         <h2>Dashboard</h2>
       </SidebarHeader>
       <SidebarBody>
-        <ProjectList
-          projects={projects}
-          onAdd={() => console.log('Add project')}
-        />
+        <ProjectList projects={projects} onAdd={() => setIsOpen(true)} />
+        <CreateProjectModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
       </SidebarBody>
     </div>
   );
