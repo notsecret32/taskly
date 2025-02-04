@@ -1,10 +1,13 @@
+import { createProject } from '@/api';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Modal, ModalProps } from '@/components/ui/modal';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import {
+  CreateProjectInput,
   PROJECT_MAX_TITLE_LENGTH,
   PROJECT_MAX_TITLE_MESSAGE,
   PROJECT_MIN_TITLE_LENGTH,
@@ -27,7 +30,10 @@ export const CreateProjectModal: FC<CreateProjectModalProps> = ({
   onClose,
   ...rest
 }) => {
+  const queryClient = useQueryClient();
+
   const {
+    reset,
     register,
     handleSubmit,
     formState: { errors },
@@ -36,8 +42,24 @@ export const CreateProjectModal: FC<CreateProjectModalProps> = ({
     defaultValues: { name: '' },
   });
 
-  const onSubmit = async (data: z.infer<typeof schema>) => {
-    console.log(data);
+  const mutation = useMutation({
+    mutationFn: (data: CreateProjectInput) => createProject(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['projects'] });
+      reset();
+      onClose();
+    },
+    onError: (error) => {
+      console.error('Error creating project:', error);
+    },
+  });
+
+  const onSubmit = async ({ name }: z.infer<typeof schema>) => {
+    mutation.mutate({ name });
+  };
+
+  const handleClose = () => {
+    reset();
     onClose();
   };
 
@@ -45,7 +67,7 @@ export const CreateProjectModal: FC<CreateProjectModalProps> = ({
     <Modal
       label="Create New Project"
       className="h-auto max-w-lg"
-      onClose={onClose}
+      onClose={handleClose}
       {...rest}
     >
       <Form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
@@ -55,10 +77,10 @@ export const CreateProjectModal: FC<CreateProjectModalProps> = ({
           {errors.name && <p className="text-error">{errors.name.message}</p>}
         </div>
         <div className="flex gap-4">
-          <Button className="grow" variant="secondary" onClick={onClose}>
+          <Button className="grow" variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button className="grow" type="submit">
+          <Button className="grow" type="submit" disabled={mutation.isPending}>
             Create
           </Button>
         </div>
