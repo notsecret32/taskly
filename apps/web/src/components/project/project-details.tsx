@@ -1,9 +1,8 @@
 import { ProjectDetailsLayout } from '@/components/layout';
 import { TasksListView } from '@/components/project';
-import { Modal } from '@/components/ui/modal';
 import { Project } from '@taskly/types';
 import { Pencil } from 'lucide-react';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 const project: Project = {
   id: '1',
@@ -38,8 +37,6 @@ const project: Project = {
 };
 
 export const ProjectDetails: FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
-
   const { name, tasks } = project;
 
   return (
@@ -48,13 +45,6 @@ export const ProjectDetails: FC = () => {
         <h1>{name}</h1>
       </ProjectTitle>
       <TasksListView tasks={tasks} />
-      <Modal
-        isOpen={isModalOpen}
-        label="Task #1"
-        onClose={() => setIsModalOpen(false)}
-      >
-        Hello, Modal!
-      </Modal>
     </ProjectDetailsLayout>
   );
 };
