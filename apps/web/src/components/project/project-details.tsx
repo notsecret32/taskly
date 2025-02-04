@@ -1,50 +1,27 @@
 import { ProjectDetailsLayout } from '@/components/layout';
 import { TasksListView } from '@/components/project';
-import { Project } from '@taskly/types';
+import { useProject } from '@/hooks';
 import { Pencil } from 'lucide-react';
 import { FC } from 'react';
 
-const project: Project = {
-  id: '1',
-  name: 'Project Details',
-  tasks: [
-    {
-      id: '1',
-      title: 'Task #1',
-      isCompleted: true,
-    },
-    {
-      id: '2',
-      title: 'Task #2',
-      isCompleted: false,
-    },
-    {
-      id: '3',
-      title: 'Task #3',
-      isCompleted: false,
-    },
-    {
-      id: '4',
-      title: 'Task #4',
-      isCompleted: false,
-    },
-    {
-      id: '5',
-      title: 'Task #5',
-      isCompleted: false,
-    },
-  ],
-};
-
 export const ProjectDetails: FC = () => {
-  const { name, tasks } = project;
+  const { project, isLoading, error, isError } = useProject();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError || !project) {
+    console.error(error);
+    return <div>Error... check console</div>;
+  }
 
   return (
     <ProjectDetailsLayout>
       <ProjectTitle onEdit={() => console.log('Edit title')}>
-        <h1>{name}</h1>
+        <h1>{project.name}</h1>
       </ProjectTitle>
-      <TasksListView tasks={tasks} />
+      <TasksListView tasks={project.tasks} />
     </ProjectDetailsLayout>
   );
 };
